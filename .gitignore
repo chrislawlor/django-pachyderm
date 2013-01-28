@@ -1,0 +1,7 @@
+*.py[cod]
+.tox
+.coverage
+tests/test_project/local_settings.py
+
+# Project files
+*.komodoproject

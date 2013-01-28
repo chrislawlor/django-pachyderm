@@ -1,0 +1,5 @@
+DATABASE_ENGINE = 'postgresql_psycopg2'
+DATABASE_NAME = 'pachyderm'
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
+

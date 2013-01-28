@@ -1,0 +1,46 @@
+# Local settings for example project.
+
+try:
+    from example.settings_global import *
+except ImportError:
+    import sys
+    sys.stderr.write('example.settings_global.py not available\n')
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+ADMINS = (
+    # ('Admin Name', 'admin@example.com'),
+)
+
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.join(PROJECT_DIR, 'example.sqlite'), # Or path to database file if using sqlite3.
+        'USER': '',                             # Not used with sqlite3.
+        'PASSWORD': '',                         # Not used with sqlite3.
+        'HOST': '',                             # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                             # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'qw*iycb)-8bjd6cayppes=b$-ejxnp7p&amp;0w8j20ug0-d8pweut'
+
+if DEBUG:
+    # Show emails in the console during development.
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ 
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
+
+    MIDDLEWARE_CLASSES += (
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+
+    DEBUG_TOOLBAR_CONFIG = {
+        "INTERCEPT_REDIRECTS": False,
+    }
