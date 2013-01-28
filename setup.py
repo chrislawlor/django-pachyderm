@@ -3,11 +3,11 @@ from distutils.core import setup
 setup(
     name = "Django Pachyderm",
     version = "0.1a",
-    url = 'http://github.com/chrislawlor',
+    url = 'https://github.com/chrislawlor/django-pachyderm',
     author = 'Chris Lawlor',
     author_email = 'lawlor.chris@gmail.com',
     description = 'Django fields for specialized native DB types..',
-    download_url = 'https://github.com/chrislawlor',
+    download_url = 'https://github.com/chrislawlor/django-pachyderm/archive/master.tar.gz',
     license = "BSD",
     classifiers = [
         'Development Status :: 2 - Pre-Alpha',
