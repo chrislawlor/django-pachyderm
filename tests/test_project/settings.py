@@ -4,11 +4,24 @@ from django.core.exceptions import ImproperlyConfigured
 
 DEBUG = True
 
-DATABASE_ENGINE = 'postgresql_psycopg2'
-DATABASE_NAME = 'YOUR_DATABASE'
-DATABASE_USER = 'USER'
-DATABASE_PASSWORD = 'PASSWORD'
+def get_env_var(varname, default=None):
+    """Get the environment variable or raise an exception."""
+    try:
+        return os.environ[varname]
+    except KeyError:
+        if default is not None:
+            return default
+        raise ImproperlyConfigured("You must set the %s env variable." % varname)
 
+# defaults for TravisCI
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': get_env_var('PACHYDERM_DATABASE_NAME', 'pachyderm'),
+        'USER': get_env_var('PACHYDERM_DATABASE_USER', 'postgres'),
+        'PASSWORD': get_env_var('PACHYDERM_DATABASE_PASSWORD', '')
+    }
+}
 
 INSTALLED_APPS = (
     'django.contrib.auth', 
@@ -27,17 +40,5 @@ MIDDLEWARE_CLASSES = (
 
 SECRET_KEY = "DON'T MATTER"
 
-try:
-    from .local_settings import *
-except ImportError:
-    raise ImproperlyConfigured("local_settings file is required.")
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': DATABASE_NAME,
-        'USER': DATABASE_USER,
-        'PASSWORD': DATABASE_PASSWORD
-    }
-}
