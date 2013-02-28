@@ -9,6 +9,8 @@ setup(
     description = 'Django fields for specialized native DB types..',
     download_url = 'https://github.com/chrislawlor/django-pachyderm/archive/master.tar.gz',
     license = "BSD",
+    packages=['pachyderm'],
+    package_dir={'pachyderm': 'src/pachyderm'},
     classifiers = [
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Web Environment',
