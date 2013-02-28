@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+# command to install dependencies
+install:
+  - "pip install . --use-mirrors"
+  - "pip install django>=1.5 psycopg2==2.4.6"
+# command to run tests
+script: django-admin.py test test_app
