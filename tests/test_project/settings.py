@@ -28,7 +28,7 @@ MIDDLEWARE_CLASSES = (
 SECRET_KEY = "DON'T MATTER"
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     raise ImproperlyConfigured("local_settings file is required.")
 
