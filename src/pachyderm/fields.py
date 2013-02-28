@@ -1,13 +1,15 @@
-from django.db.models.fields import Field
+from django.db import models
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 
 
-class ArrayField(Field):
+class ArrayField(models.Field):
     
     description = """
     PostgreSQL allows columns of a table to be defined as variable-length
     multidimensional arrays. Arrays of any built-in or user-defined base
     type, enum type, or composite type can be created."""
+    
+    __metaclass__ = models.SubfieldBase
     
     def __init__(self, verbose_name=None, name=None,
                  dimensions=1, data_type=None, **kwargs):
@@ -25,7 +27,7 @@ class ArrayField(Field):
         if data_type is None:
             raise ImproperlyConfigured("ArrayField requires data_type to be specified.")
         
-        Field.__init__(self, verbose_name, name, **kwargs)
+        models.Field.__init__(self, verbose_name, name, **kwargs)
     
     def db_type(self, connection):
         return "%s%s" % (self.data_type, "[]" * self.dimensions)
