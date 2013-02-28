@@ -8,6 +8,14 @@ install:
   - "pip install . --use-mirrors"
   - "pip install django>=1.5 psycopg2==2.4.6"
 
-env: DJANGO_SETTINGS_MODULE=test_project.settings
+env: 
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE=test_project.settings
+    - REPO="myuser/myrepo"
+    - CI_HOME=`pwd`/$REPO
+    - PYTHONPATH=$PYTHONPATH:$CI_HOME/tests
 
-script: django-admin.py test test_app
+script:
+  - cd tests
+  - django-admin.py test test_app
