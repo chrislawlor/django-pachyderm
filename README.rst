@@ -14,8 +14,11 @@ There are a few other custom field libraries around. Why use Pachyderm?
 Well Tested
 ~~~~~~~~~~~
 
-Pachyderm fields will be tested on every version of Python which is supported
-by every version of Django. No surprises.
+Pachyderm fields are tested against every version of psycopg2 (from 2.4.1) and the most
+two recent releases of Django (currently 1.4 and 1.5).
+
+Note that some features are not supported by all versions of psycopg2. For example,
+support array fields of type ``psycopg2.extras.Inet`` was added in psycopg2 2.4.5.
 
 
 Comprehensive
