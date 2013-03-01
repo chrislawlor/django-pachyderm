@@ -1,9 +1,9 @@
 Django Pachyderm
 ================
 
-.. image:: https://secure.travis-ci.org/chrislawlor/django-pachyderm.png
+.. image:: https://secure.travis-ci.org/chrislawlor/django-pachyderm.png?branch=master
     :alt: Build Status
-    :target: http://travis-ci.org/chrislawlor/django-pachyderm.png
+    :target: https://travis-ci.org/chrislawlor/django-pachyderm
 
 A set (well, one for now) of Django Fields for PostgreSQL special data types.
 
