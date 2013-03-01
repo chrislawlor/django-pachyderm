@@ -4,7 +4,7 @@ when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
 """
-import unittest
+from django.utils.unittest import skipUnless
 
 import psycopg2
 from psycopg2.extras import Inet
@@ -49,7 +49,7 @@ class ArrayFieldTests(TransactionTestCase):
         self.assertEqual(1, IntegerArrayContainer.objects.filter(
             items__contains=1).count())
 
-    @unittest.skipUnless(psycopg2_version_gte('2.4.5'),
+    @skipUnless(psycopg2_version_gte('2.4.5'),
                          'Array support for Inet introduced in psycopg2 2.4.5')
     def test_inet_type(self):
         container = IPArrayContainer.objects.create(
