@@ -1,6 +1,10 @@
 Django Pachyderm
 ================
 
+.. image:: https://secure.travis-ci.org/chrislawlor/django-pachyderm.png
+    :alt: Build Status
+    :target: http://travis-ci.org/chrislawlor/django-pachyderm.png
+
 A set (well, one for now) of Django Fields for PostgreSQL special data types.
 
 Currently, only ArrayField is supported, but support for JSON and UUID types
