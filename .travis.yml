@@ -16,6 +16,9 @@ env:
     - CI_HOME=`pwd`/$REPO
     - PYTHONPATH=$PYTHONPATH:$CI_HOME/tests
 
+before_script:
+  - psql -c 'CREATE DATABASE pachyderm;' -U postgres
+
 script:
   - cd tests
   - django-admin.py test test_app
