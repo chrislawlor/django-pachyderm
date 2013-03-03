@@ -24,3 +24,5 @@ try:
     )
 except ImportError:
     pass
+
+from .uuid_fields import UUIDField
