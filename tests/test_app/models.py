@@ -6,7 +6,7 @@ from pachyderm.fields import (
     BooleanArrayField
 )
 
-from .testutils import postgres_version_gte, psycopg2_version_gte
+from .tests.utils import postgres_version_gte, psycopg2_version_gte
 
 
 class NamedModel(models.Model):

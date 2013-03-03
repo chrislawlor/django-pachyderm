@@ -2,6 +2,8 @@
 import os
 from django.core.exceptions import ImproperlyConfigured
 
+PROJECT_ROOT = '/home/clawlor/code/django-pachyderm/tests/'
+
 DEBUG = True
 
 def get_env_var(varname, default=None):
@@ -39,6 +41,12 @@ MIDDLEWARE_CLASSES = (
 )
 
 SECRET_KEY = "DON'T MATTER"
+
+
+# TEST RUNNER
+TEST_RUNNER = 'test_app.tests.runner.DiscoverRunner'
+TEST_DISCOVER_TOP_LEVEL = PROJECT_ROOT
+#TEST_DISCOVER_PATTERN = "*"
 
 
 
