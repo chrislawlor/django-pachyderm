@@ -19,8 +19,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': get_env_var('PACHYDERM_DATABASE_NAME', 'pachyderm'),
         'USER': get_env_var('PACHYDERM_DATABASE_USER', 'postgres'),
-        'PASSWORD': get_env_var('PACHYDERM_DATABASE_PASSWORD', '')
-    }
+        'PASSWORD': get_env_var('PACHYDERM_DATABASE_PASSWORD', ''),
+    },
 }
 
 INSTALLED_APPS = (

@@ -1,7 +1,12 @@
 from django.db import models
-from psycopg2.extras import register_inet
 
-from pachyderm import ArrayField
+from pachyderm.fields import (
+    CharacterArrayField,
+    IntegerArrayField,
+    BooleanArrayField
+)
+
+from .testutils import postgres_version_gte, psycopg2_version_gte
 
 
 class NamedModel(models.Model):
@@ -14,16 +19,28 @@ class NamedModel(models.Model):
         return self.name
 
 
-class TextArrayContainer(NamedModel):
-    items = ArrayField(dimensions=1, data_type='text')
+class CharArrayContainer(NamedModel):
+    items = CharacterArrayField(max_length=10)
 
 
 class IntegerArrayContainer(NamedModel):
-    items = ArrayField(dimensions=1, data_type='integer')
+    items = IntegerArrayField()
+    
+
+class BooleanArrayContainer(NamedModel):
+    items = BooleanArrayField()
 
 
-register_inet()
-class IPArrayContainer(NamedModel):
-    items = ArrayField(dimensions=1, data_type='inet')
+if psycopg2_version_gte('2.4.5'):
+    from pachyderm.fields import IPArrayField
+    class IPArrayContainer(NamedModel):
+        items = IPArrayField()
+
+
+if postgres_version_gte(9,2) and psycopg2_version_gte('2.5.0'):
+    from pachyderm.fields import DateRangeField
+    
+    class DateRangeContainer(NamedModel):
+        span = DateRangeField()
 
 
