@@ -2,6 +2,7 @@
 .tox
 .coverage
 tests/test_project/local_settings.py
+set_env_vars.sh
 
 # Project files
 *.komodoproject
