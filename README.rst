@@ -24,6 +24,8 @@ two recent releases of Django (currently 1.4 and 1.5).
 Note that some features are not supported by all versions of psycopg2. For example,
 support array fields of type ``psycopg2.extras.Inet`` was added in psycopg2 2.4.5.
 
+Also, Pachyderm is tested against Python 2.6, 2.7, 3.2, and 3.3.
+
 
 Comprehensive
 ~~~~~~~~~~~~~
