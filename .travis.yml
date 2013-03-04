@@ -14,7 +14,7 @@ env:
     - DJANGO_SETTINGS_MODULE=test_project.settings
     - REPO="chrislawlor/django-pachyderm"
     - CI_HOME=`pwd`/$REPO
-    - PYTHONPATH=$PYTHONPATH:$CI_HOME/tests
+    - PYTHONPATH=$PYTHONPATH:$CI_HOME/tests/:$CI_HOME/src/
 
 before_script:
   - psql -c 'CREATE DATABASE pachyderm;' -U postgres
