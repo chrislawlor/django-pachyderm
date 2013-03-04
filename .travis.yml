@@ -12,7 +12,7 @@ env:
 env:
   global:
     - DJANGO_SETTINGS_MODULE=test_project.settings
-    - REPO="myuser/myrepo"
+    - REPO="chrislawlor/django-pachyderm"
     - CI_HOME=`pwd`/$REPO
     - PYTHONPATH=$PYTHONPATH:$CI_HOME/tests
 
