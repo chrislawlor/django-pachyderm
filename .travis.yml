@@ -20,5 +20,4 @@ before_script:
   - psql -c 'CREATE DATABASE pachyderm;' -U postgres
 
 script:
-  - cd tests
   - django-admin.py test test_app
