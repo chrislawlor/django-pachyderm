@@ -2,7 +2,7 @@
 import os
 from django.core.exceptions import ImproperlyConfigured
 
-PROJECT_ROOT = '/home/clawlor/code/django-pachyderm/tests/'
+PROJECT_ROOT = os.path.abspath(__file__).split(os.sep)[-3]
 
 DEBUG = True
 
