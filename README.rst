@@ -7,7 +7,7 @@ Django Pachyderm
 
 A set (well, one for now) of Django Fields for PostgreSQL special data types.
 
-Currently, only ArrayField and UUIDField are supported, but support for other types
+Currently, ArrayField, UUIDField, and JSONField are supported, but support for other types
 is coming soon :)
 
 Why?

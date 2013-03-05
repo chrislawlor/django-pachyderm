@@ -26,3 +26,8 @@ except ImportError:
     pass
 
 from .uuid_fields import UUIDField
+
+try:
+    from .json_field import JSONField
+except ImportError:
+    pass

@@ -4,7 +4,7 @@ from pachyderm.fields import (
     CharacterArrayField,
     IntegerArrayField,
     BooleanArrayField,
-    UUIDField
+    UUIDField,
 )
 
 from .tests.utils import postgres_version_gte, psycopg2_version_gte
@@ -53,4 +53,12 @@ class UUIDContainerNonPK(NamedModel):
 
 class UUIDContainerPK(NamedModel):
     id = UUIDField(primary_key=True)
+    
+
+# JSONField model
+if postgres_version_gte(9,2) and psycopg2_version_gte('2.5.0'):
+    from pachyderm.fields import JSONField
+    
+    class JSONContainer(NamedModel):
+        json = JSONField()
 
