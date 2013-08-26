@@ -44,7 +44,6 @@ class JSONFieldTests(TestCase):
         self.assertEqual(1, JSONContainer.objects.all().count())
         retrieved = JSONContainer.objects.get(name='container')
         self.assertEqual(data, retrieved.json)
-        self.assertFalse(isinstance(retrieved.json, basestring))
         self.assertTrue(isinstance(retrieved.json, dict))
 
     @skip_before_psycopg('2.5.0')
@@ -55,5 +54,6 @@ class JSONFieldTests(TestCase):
         container = JSONContainer.objects.create(name='container',
                                                  json=data)
         container.json['foo'] = 'baz'
+        container.save()
         retrieved = JSONContainer.objects.get(name='container')
         self.assertEqual('baz', retrieved.json['foo'])
