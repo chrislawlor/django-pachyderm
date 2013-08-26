@@ -46,3 +46,14 @@ class JSONFieldTests(TestCase):
         self.assertEqual(data, retrieved.json)
         self.assertFalse(isinstance(retrieved.json, basestring))
         self.assertTrue(isinstance(retrieved.json, dict))
+
+    @skip_before_psycopg('2.5.0')
+    @skip_before_postgres(9, 2)
+    def test_direct_access(self):
+        from test_app.models import JSONContainer
+        data = {'foo': 'bar'}
+        container = JSONContainer.objects.create(name='container',
+                                                 json=data)
+        container.json['foo'] = 'baz'
+        retrieved = JSONContainer.objects.get(name='container')
+        self.assertEqual('baz', retrieved.json['foo'])
