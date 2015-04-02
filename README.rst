@@ -72,11 +72,11 @@ Pachyderm fields are tested against every version of psycopg2 (from 2.4.1) and t
 two recent releases of Django (currently 1.4 and 1.5).
 
 Note that some features are not supported by all versions of psycopg2 and / or
-PostgreSQL. For example, support for array fields of type ``psycopg2.extras.Inet`` 
+PostgreSQL. For example, support for array fields of type ``psycopg2.extras.Inet``
 was added in psycopg2 2.4.5, and support for JSON fields was added in PostgreSQL
 9.2.
 
-Also, Pachyderm is tested against Python 2.6, 2.7, 3.2, and 3.3.
+Also, Pachyderm is tested against Python 2.7 and 3.4.
 
 
 Comprehensive
